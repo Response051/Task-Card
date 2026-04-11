@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Task-Card</title>
+  </head>
+  <body>
+    <article>
+      <p>MAIN</p>
+      <h3 class="received-title"></h3>
+      <p class="received-Description"></p>
+    </article>
+    <script>
+      const receivedTilted = document.querySelector(".received-title");
+      const receivedDescription = document.querySelector(
+        ".received-Description",
+      );
+
+      const receivedData = localStorage.getItem("sharedData");
+      const receivedData2 = localStorage.getItem("sharedData2");
+      console.log(receivedData, receivedData2);
+
+      let receivedValue;
+      if (receivedData || receivedData2) {
+        receivedTilted.textContent = receivedData;
+        receivedDescription.textContent = receivedData2;
+      } else if (!receivedData || !receivedData2) {
+        receivedTilted.textContent = "input a title";
+        receivedDescription.textContent = "no task description";
+      }
+    </script>
+  </body>
+</html>
