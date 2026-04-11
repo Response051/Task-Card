@@ -10,16 +10,27 @@
   <body>
     <article class="root-card" class="welcome-card">
       <h2>Title</h2>
-      <input type="text" id="text" name="Title" />
+      <input type="text" id="sentTitle" name="Title" placeholder="Title..." />
       <p>Description</p>
-      <input type="text" id="text-description" name="Description" />
+      <input type="text" id="textDescription" name="Description" />
       <p>date</p>
       <input type="date" id="date" />
       <p>Time</p>
       <time><input type="time" id="time" /></time>
 
       <input type="checkbox" id="checkbox" />
-      <button><a href="main.html">create</a></button>
+      <button class="button"></button>
+      <a href="./main.html" onclick="moveAll()">create</a>
     </article>
+    <script>
+      function moveAll() {
+        const sentTitle = document.querySelector("#sentTitle").value;
+        const sentDescription = document.querySelector("#textDescription").value;
+        // Save it to localStorage (Key: "sharedData", Value: value)
+        localStorage.setItem("sharedData", sentTitle);
+        localStorage.setItem("sharedData2", sentDescription)
+        window.location.href = "./main.html";
+      }
+    </script>
   </body>
 </html>
