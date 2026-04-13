@@ -15,20 +15,22 @@
       <input type="text" id="textDescription" name="Description" />
       <p>date</p>
       <input type="date" id="date" />
-      <p>Time</p>
+      <p class="time">Time</p>
       <time><input type="time" id="time" /></time>
 
       <input type="checkbox" id="checkbox" />
-      <button class="button"></button>
+      <button class="button">submit</button>
       <a href="./main.html" onclick="moveAll()">create</a>
     </article>
     <script>
       function moveAll() {
-        const sentTitle = document.querySelector("#sentTitle").value;
-        const sentDescription = document.querySelector("#textDescription").value;
+        const allData = {
+          sentTitle: document.querySelector("#sentTitle").value,
+          sentDescription: document.querySelector("#textDescription").value,
+        };
         // Save it to localStorage (Key: "sharedData", Value: value)
-        localStorage.setItem("sharedData", sentTitle);
-        localStorage.setItem("sharedData2", sentDescription)
+        localStorage.setItem("sharedData", JSON.stringify(allData));
+        // localStorage.setItem("sharedData2", sentDescription);
         window.location.href = "./main.html";
       }
     </script>
