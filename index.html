@@ -8,19 +8,39 @@
     <title>Task-Card</title>
   </head>
   <body>
-    <article class="root-card" class="welcome-card">
+    <article
+      class="root-card"
+      class="welcome-card"
+      data-testid="test-todo-card"
+    >
       <h2>Title</h2>
-      <input type="text" id="sentTitle" name="Title" placeholder="Title..." />
+      <input
+        type="text"
+        id="sentTitle"
+        name="Title"
+        placeholder="Title..."
+        data-testid="test-todo-title"
+      />
       <p>Description</p>
-      <input type="text" id="textDescription" name="Description" />
+      <input
+        type="text"
+        id="textDescription"
+        name="Description"
+        data-testid="test-todo-description"
+      />
       <p>date</p>
-      <input type="date" id="date" />
+      <input type="date" id="date" data-testid="test-todo-due-date" />
       <p class="time">Time</p>
       <time><input type="time" id="time" /></time>
-
-      <input type="checkbox" id="checkbox" />
-      <button class="button" href="./main.html">submit</button>
-      <a href="./main.html" onclick="moveAll()" class="anchor">create</a>
+      <button
+        onclick="moveAll()"
+        class="button"
+        href="./main.html"
+        data-testid="test-todo-delete-button"
+      >
+        Create Task
+      </button>
+      <!-- <a href="./main.html" onclick="moveAll()">create</a> -->
     </article>
     <script>
       function moveAll() {
@@ -30,8 +50,14 @@
         time = document.getElementById("time").value;
 
         // use the date() obj to create a date Obj from a string value same for time
-        dateValue = new Date(date);
+        dateValue = new Date(`${date}T${time}`);
+        now = new Date();
         timeValue = new Date(`1994-12-03T${time}`);
+
+        let status = "active";
+        if (dateValue > now) {
+          status = "overdue";
+        }
 
         // date and time objs converted to ISO standards
         isoDate = dateValue.toDateString();
@@ -41,6 +67,7 @@
           sentDescription: sentDescription,
           isoDate: isoDate,
           isoTime: isoTime,
+          status: status,
         };
 
         // Save it to localStorage (Key: "sharedData", Value: value), where JSON is used to store allData
