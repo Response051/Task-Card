@@ -19,18 +19,32 @@
       <time><input type="time" id="time" /></time>
 
       <input type="checkbox" id="checkbox" />
-      <button class="button">submit</button>
-      <a href="./main.html" onclick="moveAll()">create</a>
+      <button class="button" href="./main.html">submit</button>
+      <a href="./main.html" onclick="moveAll()" class="anchor">create</a>
     </article>
     <script>
       function moveAll() {
+        sentTitle = document.querySelector("#sentTitle").value;
+        sentDescription = document.querySelector("#textDescription").value;
+        date = document.getElementById("date").value;
+        time = document.getElementById("time").value;
+
+        // use the date() obj to create a date Obj from a string value same for time
+        dateValue = new Date(date);
+        timeValue = new Date(`1994-12-03T${time}`);
+
+        // date and time objs converted to ISO standards
+        isoDate = dateValue.toDateString();
+        isoTime = timeValue.toLocaleTimeString();
         const allData = {
-          sentTitle: document.querySelector("#sentTitle").value,
-          sentDescription: document.querySelector("#textDescription").value,
+          sentTitle: sentTitle,
+          sentDescription: sentDescription,
+          isoDate: isoDate,
+          isoTime: isoTime,
         };
-        // Save it to localStorage (Key: "sharedData", Value: value)
+
+        // Save it to localStorage (Key: "sharedData", Value: value), where JSON is used to store allData
         localStorage.setItem("sharedData", JSON.stringify(allData));
-        // localStorage.setItem("sharedData2", sentDescription);
         window.location.href = "./main.html";
       }
     </script>
