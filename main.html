@@ -13,6 +13,7 @@
       <p class="received-Description"></p>
       <p class="received-Date"></p>
       <p class="received-Time"></p>
+      <input type="checkbox" id="checkbox" value="true" />
     </article>
     <script>
       // gets the h3 and p in the Main.HTML
@@ -22,6 +23,7 @@
       );
       const receivedDate = document.querySelector(".received-Date");
       const receivedTime = document.querySelector(".received-Time");
+      const checkbox = document.querySelector("#checkbox");
 
       // gets the shared-data from the sent-files using the getItem from Localstorage
       const receivedData = localStorage.getItem("sharedData");
@@ -43,6 +45,16 @@
           receivedTime.textContent = task.isoTime;
         }
       }
+      checkbox.addEventListener("click", () => {
+        if (checkbox.checked) {
+          receivedTilted.style.color = "blue";
+          receivedTilted.style.textDecoration = "line-through";
+          alert('Tasked-Cleared')
+        } else {
+          receivedTilted.style.textDecoration = "none";
+          receivedTilted.style.color = "black";
+        }
+      });
     </script>
   </body>
 </html>
