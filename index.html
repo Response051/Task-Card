@@ -8,11 +8,7 @@
     <title>Task-Card</title>
   </head>
   <body>
-    <article
-      class="root-card"
-      class="welcome-card"
-      data-testid="test-todo-card"
-    >
+    <article data-testid="test-todo-card" class="mainArticle">
       <h2>Title</h2>
       <input
         type="text"
@@ -28,10 +24,16 @@
         name="Description"
         data-testid="test-todo-description"
       />
-      <p>date</p>
-      <input type="date" id="date" data-testid="test-todo-due-date" />
-      <p class="time">Time</p>
-      <time><input type="time" id="time" /></time>
+      <div class="dateTime" id="Datetime">
+        <div>
+          <p>DATE</p>
+          <input type="date" id="date" data-testid="test-todo-due-date" />
+        </div>
+        <div>
+          <p class="time">TIME</p>
+          <time><input type="time" id="time" /></time>
+        </div>
+      </div>
       <button
         onclick="moveAll()"
         class="button"
@@ -40,7 +42,6 @@
       >
         Create Task
       </button>
-      <!-- <a href="./main.html" onclick="moveAll()">create</a> -->
     </article>
     <script>
       function moveAll() {
