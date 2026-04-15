@@ -9,9 +9,9 @@
   </head>
   <body>
     <article data-testid="test-todo-card" class="mainArticle">
-      <p>welcome-Taskcard</p>
+      <h2>Taskcard</h2>
       <div>
-        <h3 class="received-title" data-testid="test-todo-title"></h3>
+        <h2 class="received-title" data-testid="test-todo-title"></h2>
         <div
           class="received-Description"
           data-testid="test-todo-description"
@@ -88,7 +88,7 @@
       // this functions for the checkbox input and updates the Ui styles
       checkbox.addEventListener("click", () => {
         if (checkbox.checked) {
-          receivedTilted.style.color = "white";
+          // receivedTilted.style.color = "white";
           receivedTilted.style.textDecoration = "line-through";
           alert("Tasked-Cleared");
         } else {
