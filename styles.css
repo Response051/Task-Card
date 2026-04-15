@@ -22,7 +22,7 @@ body {
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
-  background-color: #1e1e1e;
+  background-color: #40cfe2;
 }
 
 /* 6. Improve media defaults */
@@ -81,7 +81,7 @@ h6 {
   align-items: center;
   flex-direction: column;
   margin: 20px 5%;
-  background-color: #455a64;
+  background-color: #e5e5e5;
   max-width: 100%;
 }
 .received-title,
@@ -116,4 +116,28 @@ div > h3,
 }
 .buttonDE {
   margin: 20px 0px;
+}
+input[type="text"] {
+  width: 80%;
+  border-radius: 10px;
+  background-color: rgb(245, 245, 227);
+}
+#Datetime {
+  margin: 20px 0px;
+}
+.button {
+  margin-bottom: 20px;
+  background-color: #6cc56c;
+  padding: 5px 50px;
+  border-radius: 10px;
+  color: #ffff;
+}
+article > h2,
+p {
+  color: #212181;
+}
+@media (min-width: 992px) {
+  input[type="text"] {
+    width: 20%;
+  }
 }
